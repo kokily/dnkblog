@@ -29,8 +29,8 @@ title: 소개글
 
 ## 제작한 사이트
 
-#### [**강동구장애인연합회**](http://gangdonga.com) : 같은 회사 형님이 소속되어 봉사활동 겸 운영하게 된 사이트
- - 서버 : Mac, 백엔드 : Express(NodeJS)
+#### [**강동구장애인연합회**](https://gangdonga.com) : 같은 회사 형님이 소속되어 봉사활동 겸 운영하게 된 사이트
+ - 서버 : Netlify, 프론트엔드 : ReactJS
 
-#### [**D&K Blog**](http://dnkdream.com) : 지금 여기 (ㅋㅋㅋㅋㅋ)
- - 서버 : Mac, 운영은 Gatsby
+#### [**D&K Blog**](https://dnkdream.com) : 지금 여기 (ㅋㅋㅋㅋㅋ)
+ - 서버 : Netlify, 프론트엔드 : Gatsby(ReactJS)

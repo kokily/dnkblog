@@ -7,7 +7,7 @@ menuTitle: 제작한 곳
 
 ![GangdongA](./gangdonga.png)
 
-#### 서버 : Mac, 사용된 기술 : NodeJS(Express, MongoDB)
+#### 서버 : Netlify, 프론트엔드 : ReactJS, Gatsby
 
 내 깃허브 주소는 여기다(갈 사람은 없지만 ㅋㅋ)
 [Github repo](https://github.com/kokily)

@@ -1,5 +1,5 @@
 ---
-title: ReactJS Tutorial - 6
+title: 리액트 Tutorial - 6
 subTitle: 과거 보여주기
 category: "ReactJS"
 cover: logo.jpg

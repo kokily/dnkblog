@@ -1,6 +1,6 @@
 ---
-title: ReactJS Tutorial - 4
-subTitle: Function components
+title: 리액트 Tutorial - 4
+subTitle: 함수형 컴포넌트
 category: "ReactJS"
 cover: logo.jpg
 ---

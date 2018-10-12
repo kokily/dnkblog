@@ -1,6 +1,6 @@
 ---
-title: ReactJS Tutorial - 5
-subTitle: Adding Time Travel
+title: 리액트 Tutorial - 5
+subTitle: 히스토리 이동
 category: "ReactJS"
 cover: logo.jpg
 ---

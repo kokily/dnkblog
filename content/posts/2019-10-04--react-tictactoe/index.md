@@ -1,5 +1,5 @@
 ---
-title: ReactJS Tutorial - 1
+title: 리액트 Tutorial - 1
 subTitle: 틱택토 게임
 category: "ReactJS"
 cover: logo.jpg

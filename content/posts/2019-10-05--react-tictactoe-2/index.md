@@ -1,6 +1,6 @@
 ---
-title: ReactJS Tutorial - 2
-subTitle: 틱택토 게임
+title: 리액트 Tutorial - 2
+subTitle: 상호작용
 category: "ReactJS"
 cover: logo.jpg
 ---

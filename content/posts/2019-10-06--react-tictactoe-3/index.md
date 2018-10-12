@@ -1,6 +1,6 @@
 ---
-title: ReactJS Tutorial - 3
-subTitle: Transfer, Immutable
+title: 리액트 Tutorial - 3
+subTitle: 속성 전송, 불변성
 category: "ReactJS"
 cover: logo.jpg
 ---

@@ -38,7 +38,7 @@ render() {
 
       return (
         <li>
-          <button onclick={() => this.jumpTo(move)}>
+          <button onClick={() => this.jumpTo(move)}>
             { desc }
           </button>
         </li>
@@ -74,7 +74,7 @@ function calculateWinner(squares) {
 ...(생략)
 ```
 
-여기서 개발자모드에 들어가보면 아래와 그림과 같은 경고문을 볼 수 있다.
+여기서 개발자모드에 들어가보면 아래와 그림과 같은 경고문을 볼 수 있습니다.
 대충 확인해보면
 
 ![Warning](./warning.png)

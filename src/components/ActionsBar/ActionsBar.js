@@ -138,7 +138,6 @@ class ActionsBar extends React.Component {
           {((isWideScreen && navigatorShape === "open") || navigatorPosition !== "is-aside") && (
             <CategoryFilter categories={categories} filterCategory={this.categoryFilterOnClick} />
           )}
-          {/*
           <IconButton
             aria-label="Search"
             onClick={this.searchOnClick}
@@ -150,7 +149,6 @@ class ActionsBar extends React.Component {
           >
             <SearchIcon className={classes.button} />
           </IconButton>
-          */}
         </div>
         <div className={classes.group}>
           {/* {navigatorPosition === "is-aside" && <FontSetter increaseFont={this.fontSetterOnClick} />} */}

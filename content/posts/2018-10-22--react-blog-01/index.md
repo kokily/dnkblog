@@ -55,7 +55,7 @@ C:\Blog-Test\frontend> yarn add redux redux-actions react-redux redux-pender
 
 
 ```scss
-- src/styles/_mixin.scss
+- src/styles/_mixins.scss
 
 // https://codepen.io/dbox/pen/RawBEW
 @mixin material-shadow($z-depth: 1, $strength: 1, $color: black) {

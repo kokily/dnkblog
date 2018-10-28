@@ -1,6 +1,6 @@
 ---
-title: 리액트로 블로그 만들기
-subTitle: React-Blog
+title: 리액트로 블로그 만들기 - 1
+subTitle: React-Blog(백엔드-1)
 category: "Blog Making"
 cover: logo.jpg
 ---
@@ -26,147 +26,124 @@ API를 연동하겠습니다. 이번 포스트까지는 KoaJS로 RestAPI를 제�
 ## 프로젝트 시작
 ```js
 - 폴더 및 파일명은 동일하지 않아도 됩니다.
-C:\> md Blog-Test
-C:\> cd Blog-Test
-C:\Blog-Test> create-react-app frontend
+
+ $ mkdir React-Blog && cd React-Blog
+ $ yarn init
 ```
 
-이후 코딩을 위한 파일 정리를 합니다. 아래 선택된 필요 없는 파일을 먼저 삭제합니다.
+이후 엔터 두다다다다다다!! 딱히 기록하기 귀찮아서 그런 건 **절대** 아님다..
 
-![File-Tree](./file-tree1.png)
+아 참고로.. (참고까지는 아니지만 ㅋㅋ) 얼마전에 좀 싼 맥북을 구매하여 개발은 맥북으로
+기존 노트북은 게임에만 활용하고 있어서 이번 부터는 맥으로 코딩합니다.  
+그렇다고 뭐 크게 달라지는 건 없습니다.
 
-그리고 프론트엔드를 위한 모듈을 설치합니다.
+![맥북](./macbook.jpg)
 
 ```js
-C:\Blog-Test\frontend> yarn add node-sass classnames
-C:\Blog-Test\frontend> yarn add cross-env --dev
-C:\Blog-Test\frontend> yarn add react-router-dom immutable
-C:\Blog-Test\frontend> yarn add redux redux-actions react-redux redux-pender
+- 모듈을 설치합니다.
+
+ $ yarn add koa koa-router koa-bodyparser dotenv joi mongoose
+ $ yarn add babel-cli babel-preset-env babel-preset-stage-3 cross-env --dev
+ $ yarn global add nodemon
 ```
 
-설치한 모듈은 아래와 같습니다.
+babel은 `import {} from ...` 구문을 사용하려고 설치합니다. 귀찮으시면 그냥
+`const {} = ...`로 하시고 그냥 안 하셔도 상관 없어용
 
-> **스타일링** : node-sass, classnames, open-color, include-media  
-> **경로설정** : cross-env(dev 옵션), react-router-dom  
-> **상태관리** : immutable, redux, redux-actions react-redux redux-pender
+우선 바벨 적용을 위해 루트 경로에 *.babelrc* 파일을 생성하여 아래와 같이 작성합니다.
 
-모듈 설치가 끝났으니 이제 스타일 세팅 먼저 하고 코딩을 시작합니다.  
-우선 그림자 처리를 쉽게 해주는 material-shadow 믹스인
+```js
+- .babelrc
 
-
-```scss
-- src/styles/_mixins.scss
-
-// https://codepen.io/dbox/pen/RawBEW
-@mixin material-shadow($z-depth: 1, $strength: 1, $color: black) {
-  @if $z-depth == 1 {
-    box-shadow: 0 1px 3px rgba($color, $strength * 0.14), 0 1px 2px rgba($color, $strength * 0.24);
-  }
-
-  @if $z-depth == 2 {
-    box-shadow: 0 3px 6px rgba($color, $strength * 0.16), 0 3px 6px rgba($color, $strength * 0.23);
-  }
-
-  @if $z-depth == 3 {
-    box-shadow: 0 10px 20px rgba($color, $strength * 0.19), 0 6px 6px rgba($color, $strength * 0.23);
-  }
-
-  @if $z-depth == 4 {
-    box-shadow: 0 15px 30px rgba($color, $strength * 0.25), 0 10px 10px rgba($color, $strength * 0.22);
-  }
-
-  @if $z-depth == 5 {
-    box-shadow: 0 20px 40px rgba($color, $strength * 0.30), 0 15px 12px rgba($color, $strength * 0.22);
-  }
-
-  @if($z-depth < 1) or ($z-depth > 5) {
-    @warn "$z-depth must be between 1 and 5";
-  }
+{
+  "presets": [
+    "env", "stage-3"
+  ]
 }
 ```
 
-```scss
-- src/styles/_setting.scss
-
-@import '~open-color/open-color';
-@import '~include-media/dist/include-media';
-@import 'mixins'
-```
-
-```scss
-- src/styles/base.scss
-
-@import 'setting';
-
-$breakpoints: (small: 320px, medium: 768px, large: 1024px, wide: 1400px);
-```
-
-`_mixins.scss` 는 material-shadow 믹스인이고 `_setting.scss` 는 *open-color, include-media, mixins*를 포함하며 이것을 `base.scss` 에서 통합하고 반응형 디자인을 위한 변수를 만들었습니다.
-
-이제 코딩을 시작합니다.
-
-먼저 `src/index.js` 파일과 `src/client/App.js` 파일을 수정합니다.
+서버 가동시 편리함을 위해 아래와 같이 *package.json* 파일에 스크립트를 추가해 줍니다.
 
 ```js
-- src/index.js
-
-import React from 'react';
-import ReactDOM from 'react-dom';
-
-import App from './client/App';
-import * as serviceWorker from './serviceWorker';
-
-import 'styles/base.scss';
-
-ReactDOM.render(<App />, document.getElementById('root'));
-serviceWorker.unregister();
-```
-
-```js
-- src/client/App.js
-
-import React, { Component } from 'react';
-
-// 브라우저 라우터로 App 을 감싸줍니다.
-import { BrowserRouter } from 'react-router-dom';
-
-class App extends Component {
-  render() {
-    return (
-      <BrowserRouter>
-        <>
-          App
-        </>
-      </BrowserRouter>
-    );
-  }
-}
-
-export default App;
-```
-
-위와 같이 작성하고 나서 *cross-env* 모듈 사용을 위해 `package.json`을
-아래와 같이 수정해 줍니다.
-
-```json
 - package.json
 
-...(생략)
-  },
+(...) 생략
   "scripts": {
-    "start": "cross-env NODE_PATH=src react-scripts start",
-    "build": "cross-env NODE_PATH=src react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-...(생략)
+    "start": "NODE_PATH=src nodemon --exec babel-node index.js"
+  }
+(...) 생략
+```
+
+이러면 파일이 수정될 때마다 자동으로 서버가 재 시작되며 파일 경로 설정 시 *src/*를 기본으로
+인식하게 되어 코딩이 다소! 편리해 집니다.
+
+> 주의!! 윈도우에서는 *NODE_PATH* 앞에 *cross-env*를 붙여야 합니다.
+
+아까 설치한 **dotenv** 모듈을 사용하여 환경설정 파일을 생성하겠습니다.
+
+```js
+- .env
+
+port=4000
+MONGO_URI=mongodb://localhost/blog
+```
+
+몽고 DB는 기본적으로 설치가 되어 있다고 가정하겠습니다. MongoDB 커뮤니티 서버로 가동하시면 됩니다.
+
+***
+
+## 서버 코딩
+기존의 KoaJS 서버를 뼈대로 작성하겠습니다. 서버 기본 코딩은 무시하겠습니다.
+
+```js
+- index.js
+
+require('dotenv').config();
+
+import Koa from 'koa';
+import Router from 'koa-router';
+import bodyParser from 'koa-bodyparser';
+import mongoose from 'mongoose';
+
+const app = new Koa();
+const router = new Router();
+
+// 비구조화 할당 문으로 process.env 내부 값에 대한 레퍼런스 작성
+const {
+  PORT: port=4000,
+  MONGO_URI: mongoURI
+} = process.env;
+
+// 몽고 DB 프라미스 사용을 위한 글로벌 선언
+mongoose.Promise = global.Promise;
+
+// 몽고 DB 접속
+mongoose.connect(mongoURI, { useNewUrlParser: true })
+  .then(() => { console.log('몽고 DB 접속 완료'); })
+  .catch((err) => { console.error(err); });
+
+// BodyParser 미들웨어 사용
+app.use(bodyParser());
+
+// 라우터 사용 선언
+app.use(router.routes()).use(router.allowedMethods());
+
+// 서버 가동
+app.listen(port, () => { console.log(`Koa 서버 작동 중 : ${port} 포트`); });
 ```
 
 그리고 **yarn start**
 
-![Browser1](./browser1.png)
+```js
+yarn run v1.10.1
+$ NODE_PATH=src nodemon --exec babel-node index.js
+[nodemon] 1.18.4
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching: *.*
+[nodemon] starting `babel-node index.js`
+Koa 서버 작동 중 : 4000 포트
+몽고 DB 접속 완료
+```
 
-***
-
-다음 포스트에서 헤더와 푸터 컴포넌트 그리고 페이지 컨테이너를 만들겠습니다
+우선 KoaJS 서버와 몽고DB는 정상적으로 가동됩니다. 이제 다음 포스트에서 라우터를 적용하여
+실제 사용할 경로들과 라우팅 시 사용될 함수들을 만들겠습니다~

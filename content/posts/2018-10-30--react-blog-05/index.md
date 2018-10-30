@@ -43,7 +43,7 @@ Material-React를 이용하여 디자인을 하려 합니다.... 제가 미적�
 
 프로젝트에 필요없는 파일들을 삭제하고 아래와 같이 코딩 시작!
 
-![Folder](./folders.png)
+> App.test.js, logo.svg, serviceWorker.js 삭제
 
 src/App.js 파일은 라우팅을 목적으로 작성할 것이므로 src/shared라는 폴더로 이동하겠습니다.
 
@@ -126,3 +126,66 @@ a {
 - 최초 인덱스 페이지(Homepage): 메인페이지, 포스트 리스트를 보여줌
 - 포스트 페이지(Postpage): 포스트의 내용을 보여주는 페이지
 - 에디터 페이지(Editorpage): 포스트를 작성하는 페이지(관리자모드)
+
+그럼 페이지를 만들고 라우터를 연결합시다.
+
+```js
+- src/pages/Homepage.js, Postpage.js, Editorpage.js
+
+import React, { Component } from 'react';
+
+class Homepage extends Component {
+  render() {
+    return (
+      <>
+        Homepage
+      </>
+    );
+  }
+}
+
+export default Homepage;
+```
+
+```js
+- src/pages/index.js
+
+export { default as Homepage } from './Homepage';
+export { default as Postpage } from './Postpage';
+export { default as Editorpage } from './Editorpage';
+```
+
+```js
+- src/shared/App.js
+
+import React, { Component } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+import { Homepage, Postpage, Editorpage } from 'pages';
+
+class App extends Component {
+  render() {
+    return (
+      <Switch>
+        <Route exact path="/" component={Homepage} />
+        <Route path="/posts" component={Postpage} />  
+        <Route path="/editor" component={Editorpage} />
+      </Switch>
+    );
+  }
+}
+
+export default App;
+```
+
+위와 같이 라우터를 각 페이지에 연결해 줍니다.
+
+그리고 브라우저에서 확인!
+
+![Browser1](./browser1.png)
+
+나머지 라우터도 확인해 보시면 이상없이 작동할 겁니다.
+
+***
+
+다음 포스트에서 헤더와 푸터, 페이지의 기본 템플릿을 작성하겠습니다.

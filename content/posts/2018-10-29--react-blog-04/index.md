@@ -147,8 +147,7 @@ exports.write = async (ctx) => {
   // RequestBody(객체가 가진 값) 검증
   const schema = Joi.object().keys({
     title: Joi.string().required(),
-    body: Joi.string().required(),
-    tags: Joi.array().items(Joi.string()).required()
+    body: Joi.string().required()
   });
   
   const result = Joi.validate(ctx.request.body, schema);
@@ -159,13 +158,12 @@ exports.write = async (ctx) => {
     return;
   }
 
-  const { title, body, tags } = ctx.request.body;
+  const { title, body } = ctx.request.body;
 ...(생략)
 ```
 
-간단하게 설명을 덧붙이자면 먼저 스키마(schema)에 title, body, tags의 형식을 지정합니다.  
+간단하게 설명을 덧붙이자면 먼저 스키마(schema)에 title, body의 형식을 지정합니다.  
 - title, body는 문자열(string), 필수항목(required)
-- tags는 문자열을 포함한 배열(array(items(string)))
 
 validate 함수의 첫번째 인자는 검증할 객체, 두번째 인자는 스키마입니다.
 그리고 그 값을 *result*에 저장하고 에러 발생시 400(Bad Request)을

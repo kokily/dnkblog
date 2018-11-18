@@ -6,7 +6,7 @@ cover: logo.jpg
 ---
 
 # 포스트 모델 생성
-포스트에 사용할 몽구스 모델(스키마)을 생성하겠습니다. 포스트에서 사용할 항목들인 *제목, 본문, 태그(배열), 작성일자*들을
+포스트에 사용할 몽구스 모델(스키마)을 생성하겠습니다. 포스트에서 사용할 항목들인 *제목, 본문 작성일자*들을
 포함하여 만들겠습니다.
 
 ```js
@@ -16,8 +16,7 @@ cover: logo.jpg
   몽고DB 스키마(Schema) 생성(포스트 작성 항목)
     1. title: 제목(문자열-String)
     2. body: 내용(문자열-String)
-    3. tags: 태그 목록(문자열로 된 배열-[String])
-    4. createdDate: 작성 날짜(날짜-Date)
+    3. createdDate: 작성 날짜(날짜-Date)
 */
 
 import mongoose from 'mongoose';
@@ -27,7 +26,6 @@ const { Schema } = mongoose;
 const Post = new Schema({
   title: String,
   body: String,
-  tags: [String],
   createdDate: {
     type: Date,
     default: new Date()
@@ -136,11 +134,11 @@ posts.get('/:id', postsCtrl.read);  // 추가
 
 // Write 컨트롤러 POST '/api/posts' : 포스트 작성하기
 exports.write = (ctx) => {
-  const { title, body, tags } = ctx.request.body;
+  const { title, body } = ctx.request.body;
 
   // 새로운 포스트 인스턴스 생성
   const post = new Post({
-    title, body, tags
+    title, body
   });
 
   try {

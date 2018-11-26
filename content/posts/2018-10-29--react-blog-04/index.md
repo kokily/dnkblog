@@ -198,13 +198,12 @@ exports.list = async (ctx) => {
 
     ctx.body = posts.map(post => ({
       ...post,
-      body: post.body.length < 200 ?
+      body: post.body.length < 100 ?
         post.body :
-        `${post.body.slice(0, 200)}...`
+        `${post.body.slice(0, 100)}...`
     }));
     
     ctx.set('Last-Page', Math.ceil(lastPage / 10));
-    ctx.body = posts;
   } catch(err) {
     ctx.throw(err, 500);
   }
@@ -248,15 +247,15 @@ const lastPage = await Post.count().exec();
 
 ctx.body = posts.map(post => ({
   ...post,
-  body: post.body.length < 200 ?
+  body: post.body.length < 100 ?
     post.body :
-    `${post.body.slice(0, 200)}...`
+    `${post.body.slice(0, 100)}...`
 }));
 
 ctx.set('Last-Page', Math.ceil(lastPage / 10));
 ```
 포스트의 수를 카운트하여 *lastPage*에 넣고 포스트의 리스트를 .map으로
-돌려서 200글자가 넘는 본문(body)은 **slice** 하여 ... 으로 대체합니다.  
+돌려서 100글자가 넘는 본문(body)은 **slice** 하여 ... 으로 대체합니다.  
 Last-Page 라는 Custom HTTP-header를 설정합니다.  
 Math.ceil 함수를 이용하여 최종 페이지 정보를 계산하여 넣습니다.
 

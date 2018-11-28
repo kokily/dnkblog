@@ -133,7 +133,7 @@ posts.get('/:id', postsCtrl.read);  // 추가
 - src/api/posts/posts.ctrl.js 아래 추가
 
 // Write 컨트롤러 POST '/api/posts' : 포스트 작성하기
-exports.write = (ctx) => {
+exports.write = async (ctx) => {
   const { title, body } = ctx.request.body;
 
   // 새로운 포스트 인스턴스 생성
@@ -169,4 +169,4 @@ export default posts;
 
 ![Postman3](./postman3.png)
 
-잘 읽어집니다! 그럼 다음 포스트에서 수정과 삭제 컨트롤러를 작성해 볼게요!
+잘 읽어집니다! 그럼 다음 포스트에서 수정과 삭제 컨트롤러를 작성해 볼게요!!

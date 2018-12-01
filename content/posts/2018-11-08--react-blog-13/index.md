@@ -19,6 +19,7 @@ import './MarkdownRender.scss';
 
 // PrismJS
 import Prism from 'prismjs';
+import 'prismjs/theme/prism-okaidia.css';
 import 'prismjs/components/prism-bash.min.js';
 import 'prismjs/components/prism-javascript.min.js';
 import 'prismjs/components/prism-jsx.min.js';

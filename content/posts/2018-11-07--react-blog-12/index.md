@@ -92,6 +92,34 @@ export default EditorPane;
 그리고 마크다운 값이 바뀌게 되면 커서의 위치가 초기화 될 수 있으므로 커서 값을 유지해 주기 위해
 setCursor로 저장합니다.
 
+이제 *에디터페이지* 의 *EditorPane* 컴포넌트를 *EditorPaneContainer* 로 변경합니다.
+
+```js
+- src/pages/Editorpage.js
+
+import React, { Component } from 'react';
+
+import { EditorTemplate } from 'components/editor';
+
+import EditorHeaderContainer from 'containers/editor/EditorHeaderContainer';
+import EditorPaneContainer from 'containers/editor/EditorPaneContainer';
+import EditorPreviewContainer from 'containers/editor/EditorPreviewContainer';
+
+class Editorpage extends Component {
+  render() {
+    return (
+      <EditorTemplate
+        header={<EditorHeaderContainer />}
+        editor={<EditorPaneContainer />}
+        preview={<EditorPreviewContainer />}
+      />
+    );
+  }
+}
+
+export default Editorpage;
+```
+
 그리고 리덕스 개발자 도구를 확인합니다.
 
 ![Browser1](./browser1.png)
@@ -123,7 +151,7 @@ class MarkdownRender extends Component {
     }
 
     this.setState({
-      hamle: marked(markdown, {
+      html: marked(markdown, {
         breaks: true,
         sanitize: true
       })

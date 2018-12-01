@@ -66,26 +66,31 @@ import { Footer } from 'components/common';
 ```js
 - frontend/src/components/common/Header.js
 
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-
 ...(생략)
 
+  render() {
+    const { classes, postId, onRemove } = this.props;
+
+    return (
+      <Toolbar className={classes.toolbarMain}>
+        <Typography className={classes.toolbarTitle}
+          component="h2" variant="h5" color="inherit"
+          align="center" noWrap
+        >
+          <Link to="/">Test Blog</Link>
         </Typography>
         <Button variant="outlined" size="small" onClick={this.handleOpen}>
           관리자
         </Button>
-        {
-          postId && [
-            <Button variant="outlined" size="small" key="edit">
-              <Link to={`/editor?id=${postId}`}>수 정</Link>
-            </Button>,
-            <Button variant="outlined" size="small" key="remove" onClick={onRemove}>
-              삭 제
-            </Button>
-          ]
-        }
+
+        {postId && [
+          <Button variant="outlined" size="small" key="edit">
+            <Link to={`/editor?id=${postId}`}>수 정</Link>
+          </Button>,
+          <Button variant="outlined" size="small" key="remove" onClick={onRemove}>
+            삭 제
+          </Button>
+        ]}
         <Button variant="outlined" size="small">
           <Link to="/editor">글 작성</Link>
         </Button>
@@ -93,6 +98,7 @@ import { Link } from 'react-router-dom';
         <Modal aria-labelledby="제목" aria-describedby="본문"
           open={this.state.isOpen} onClose={this.handleClose}
         >
+          <div className={classes.layout}>
 ...(생략)
 ```
 

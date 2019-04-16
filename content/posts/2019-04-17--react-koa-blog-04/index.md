@@ -15,7 +15,7 @@ import mongoose from 'mongoose'
 import crypto from 'crypto'
 
 // JWT 토큰생성 함수
-import { generateToken } from 'jwt/token'
+import { generateToken } from 'jwt/jwt_token'
 
 const User = new mongoose.Schema({
   username: String,

@@ -1,6 +1,6 @@
 ---
 title: MobX 블로그 - 4(백엔드-4)
-subTitle: Mobx-Blog(백엔드-4)
+subTitle: Mobx-Blog(백엔드-3)
 category: "Blog Making"
 cover: logo.jpg
 ---

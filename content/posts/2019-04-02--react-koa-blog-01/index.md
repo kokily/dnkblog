@@ -1,5 +1,5 @@
 ---
-title: MobX 블로그 - 1(백엔드-1)
+title: MobX 블로그-1(프로젝트 시작)
 subTitle: Mobx-Blog(백엔드-1)
 category: "Blog Making"
 cover: logo.png

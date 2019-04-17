@@ -1,5 +1,5 @@
 ---
-title: MobX 블로그 - 5(백엔드-5)
+title: MobX 블로그-5(RestAPI)
 subTitle: Mobx-Blog(백엔드-5)
 category: "Blog Making"
 cover: logo.png

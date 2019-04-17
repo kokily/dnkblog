@@ -1,5 +1,5 @@
 ---
-title: MobX 블로그 - 6(백엔드-6)
+title: MobX 블로그-6(로그인 API)
 subTitle: Mobx-Blog(백엔드-6)
 category: "Blog Making"
 cover: logo.png

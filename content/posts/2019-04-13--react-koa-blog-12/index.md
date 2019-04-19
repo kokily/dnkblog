@@ -2,7 +2,7 @@
 title: MobX 블로그-12(사용자인증)
 subTitle: Mobx-Blog(프론트엔드-3)
 category: "Blog Making"
-cover: logo.jpg
+cover: logo.png
 ---
 
 ## 사용자 인증

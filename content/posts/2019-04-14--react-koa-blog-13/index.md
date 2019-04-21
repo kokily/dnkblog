@@ -2,7 +2,7 @@
 title: MobX 블로그-13(인증페이지)
 subTitle: Mobx-Blog(프론트엔드-4)
 category: "Blog Making"
-cover: logo.jpg
+cover: logo.png
 ---
 
 ## 사용자 인증 페이지

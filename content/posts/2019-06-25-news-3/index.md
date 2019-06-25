@@ -1,0 +1,17 @@
+---
+title: 잊지 말자 6·25!!
+subTitle: feat. 그래도 업무는 계속...
+category: "잡담"
+cover: logo.jpg
+---
+
+# 오늘은 6·25!!
+민족의 아픔과 슬픔이 서려있는 날입니다...
+
+나도 직업군인을 10여년 넘게 했던 사람으로서 오늘같은 날은 좀 와닿는 게 많죠.  
+또한 군 관련 시설에서 업무를 하다보니 더더욱 그런 생각들이 드네요.
+
+평소라면 저녁에 퇴근하면 술을 한 잔 하겠지만 오늘은 소금만 넣고 주먹밥이라도
+만들어 먹어봐야겠습니다.
+
+<iframe width="864" height="486" src="https://www.youtube.com/watch?v=k1AdrEljAVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

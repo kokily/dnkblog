@@ -13,5 +13,3 @@ cover: logo.jpg
 
 평소라면 저녁에 퇴근하면 술을 한 잔 하겠지만 오늘은 소금만 넣고 주먹밥이라도
 만들어 먹어봐야겠습니다.
-
-<iframe width="864" height="486" src="https://www.youtube.com/watch?v=k1AdrEljAVA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

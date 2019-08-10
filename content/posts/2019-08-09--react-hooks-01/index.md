@@ -283,7 +283,7 @@ const SwitchBtn = styled.button`
 const Todo = ({ todo, onComplete, onRemove }) => {
   return (
     <TodoBlock style={{
-      textDecoration: todo.isDoit ? 'line-througe' : '',
+      textDecoration: todo.isDoit ? 'line-through' : '',
       background: todo.isDoit ? '#D5D5D5' : ''
     }}>
       <span>{ todo.text }</span>

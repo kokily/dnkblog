@@ -1,7 +1,7 @@
 ---
 title: React Hooks
 subTitle: feat. 아니 맨날 새거...
-category: "잡담"
+category: "React Hooks"
 cover: logo.png
 ---
 

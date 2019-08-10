@@ -4,7 +4,7 @@ module.exports = {
   siteTitle: "D&K Blog", // <title>
   shortSiteTitle: "D&K Blog", // <title> ending for posts and pages
   siteDescription: "D&K Blog",
-  siteUrl: "http://dnkdream.com",
+  siteUrl: "https://dnkdream.com",
   pathPrefix: "",
   siteImage: "preview.jpg",
   siteLanguage: "ko",
